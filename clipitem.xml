@@ -1,0 +1,48 @@
+          <clipitem id="clipitem-{id}">
+            <!-- This has to be duplicated for some reason -->
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>false</ntsc>
+            </rate>
+            <start>{start}</start>
+            <end>{end}</end>
+
+            <file id="file-0">
+              <name>Graphic</name>
+              <mediaSource>GraphicAndType</mediaSource>
+              <media>
+                <video>
+                  <samplecharacteristics>
+                    <width>1920</width>
+                    <height>1080</height>
+                    <anamorphic>false</anamorphic>
+                    <pixelaspectratio>square</pixelaspectratio>
+                    <fielddominance>none</fielddominance>
+                  </samplecharacteristics>
+                </video>
+              </media>
+            </file>
+
+            <filter>
+              <effect>
+                <name>{name}</name>
+                <effectid>GraphicAndType</effectid>
+                <effectcategory>graphic</effectcategory>
+                <effecttype>filter</effecttype>
+                <pproBypass>false</pproBypass>
+                <parameter authoringApp="PremierePro">
+                  <parameterid>1</parameterid>
+                  <name>Source Text</name>
+                  <value>
+                    {value}
+                  </value>
+                </parameter>
+                <parameter authoringApp="PremierePro">
+                  <parameterid>3</parameterid>
+                  <name>Position</name>
+                  <IsTimeVarying>false</IsTimeVarying>
+                  <value>0,0.5:0.8240740740740741,0,0,0,0,0,0,0,0,0,0,0,0</value>
+                </parameter>
+              </effect>
+            </filter>
+          </clipitem>

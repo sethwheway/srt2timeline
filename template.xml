@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xmeml >
+<xmeml version="4">
+  <sequence>
+    <name>Subtitles</name>
+    <duration>{duration}</duration>
+    <rate>
+      <timebase>30</timebase>
+      <ntsc>false</ntsc>
+    </rate>
+
+    <media>
+      <video>
+        <track>
+          {clipitems}
+        </track>
+      </video>
+    </media>
+  </sequence>
+  <marker></marker>
+</xmeml>
