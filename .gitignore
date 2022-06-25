@@ -1,3 +1,11 @@
+.idea
+
+# Nuitka
+srt2timeline.exe
+srt2timeline.build
+srt2timeline.dist
+srt2timeline.onefile-build
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
