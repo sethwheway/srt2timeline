@@ -4,9 +4,11 @@ from base64 import b64encode
 from pathlib import Path
 import srt
 
-template = Path("template.xml").read_text()
-clipitem = Path("clipitem.xml").read_text()
-subtitles = srt.parse(Path(sys.argv[1]).read_text(encoding="utf-8-sig"))
+target = Path(sys.argv[1])
+
+template = Path(__file__).with_name("template.xml").read_text()
+clipitem = Path(__file__).with_name("clipitem.xml").read_text()
+subtitles = srt.parse(target.read_text(encoding="utf-8-sig"))
 
 clipitems = []
 for i, sub in enumerate(subtitles):
@@ -27,4 +29,4 @@ for i, sub in enumerate(subtitles):
 
     clipitems.append(clipitem.format(id=i, start=start, end=end, name=sub.content, value=value))
 
-Path(sys.argv[1]).with_suffix(".xml").write_text(template.format(duration=end, clipitems="\n".join(clipitems)))
+target.with_suffix(".xml").write_text(template.format(duration=end, clipitems="\n".join(clipitems)))
