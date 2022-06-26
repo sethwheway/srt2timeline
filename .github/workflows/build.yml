@@ -1,0 +1,29 @@
+name: Nuitka build
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: main
+        
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+        
+    - name: Install dependencies
+      run: python -m pip install -r requirements.txt
+    
+    - name: Install extra nuitka dependencies
+      run: python -m pip install zstandard ordered-set
+    
+    - name: Nuitka build
+      run: ./srt2timeline/build.sh
+      shell: bash
