@@ -14,7 +14,14 @@ for i, sub in enumerate(subtitles):
 
     start, end = convert(sub.start), convert(sub.end)
 
-    value = {"mTextParam": {"mStyleSheet": {"mText": sub.content}}, "mUseLegacyTextBox": False, "mVersion": 1.0}
+    value = {"mVersion": 1.0, "mUseLegacyTextBox": False,
+             "mTextParam": {
+                 "mAlignment": 2,
+                 "mStyleSheet": {
+                     "mText": sub.content.replace("\n", "\r"),
+                     "mFontName": {"mParamValues": [[0, "ArialMT"]]},
+                     "mFontSize": {"mParamValues": [[0.0, 30.0]]}}},
+             }
     value = "\u0F0F\uFFFD\uFFFD\uFFFD" + json.dumps(value)
     value = b64encode(value.encode("utf-16le")).decode("ascii")
 
