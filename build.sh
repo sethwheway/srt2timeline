@@ -1,1 +1,0 @@
-python -m nuitka --standalone --onefile srt2timeline.py
